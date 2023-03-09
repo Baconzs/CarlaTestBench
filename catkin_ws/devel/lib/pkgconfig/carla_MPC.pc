@@ -1,0 +1,8 @@
+prefix=/home/sen/carla-ros-bridge/catkin_ws/devel
+
+Name: carla_MPC
+Description: Description of carla_MPC
+Version: 0.0.0
+Cflags: -I/home/sen/carla-ros-bridge/catkin_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: 

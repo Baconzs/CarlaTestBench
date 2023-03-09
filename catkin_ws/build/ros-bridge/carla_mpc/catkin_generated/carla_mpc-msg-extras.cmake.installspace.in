@@ -1,0 +1,2 @@
+set(carla_mpc_MESSAGE_FILES "msg/CarlaEgoVehicleInfo.msg;msg/CarlaEgoVehicleStatus.msg;msg/CarlaEgoVehicleControl.msg")
+set(carla_mpc_SERVICE_FILES "")

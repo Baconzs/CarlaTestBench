@@ -1,0 +1,2 @@
+set(carla_MPC_MESSAGE_FILES "/home/sen/carla-ros-bridge/catkin_ws/src/ros-bridge/carla_MPC/msg/CarlaEgoVehicleInfo.msg;/home/sen/carla-ros-bridge/catkin_ws/src/ros-bridge/carla_MPC/msg/CarlaEgoVehicleInfoWheel.msg;/home/sen/carla-ros-bridge/catkin_ws/src/ros-bridge/carla_MPC/msg/CarlaEgoVehicleStatus.msg;/home/sen/carla-ros-bridge/catkin_ws/src/ros-bridge/carla_MPC/msg/CarlaEgoVehicleControl.msg")
+set(carla_MPC_SERVICE_FILES "")
