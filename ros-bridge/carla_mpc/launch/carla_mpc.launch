@@ -1,0 +1,7 @@
+<!-- -->
+<launch>
+  <!-- launch a complete carla-ros-environment with an ad agent that steers the ego-vehicle -->
+  <!--include file="$(find carla_ackermann_control)/launch/carla_ackermann_control.launch"/-->
+  <node pkg="carla_mpc" name="carla_mpc" type="carla_mpc_node" output="screen"></node>
+
+</launch>

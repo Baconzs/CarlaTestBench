@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package vehicle_config;
+
+message VehicleParameter
+{
+	double cf = 1;
+	double cr = 2;
+
+}
