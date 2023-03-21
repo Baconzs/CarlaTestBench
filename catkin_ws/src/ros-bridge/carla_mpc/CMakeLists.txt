@@ -3,10 +3,16 @@ project(carla_mpc)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
-set(PROTOCOL_PATH include/proto)
-set(CARLA_MPC_INCLUDE_PATH include)
+# set(PROTOCOL_PATH src/Proto)
+set(CARLA_MPC_INCLUDE_COMMON_PATH src/Common)
+set(CARLA_MPC_INCLUDE_PROTO_PATH src/Proto)
+SET(CMAKE_BUILD_TYPE "Debug")
+SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
+SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
+##set(CARLA_MSGS_PATH ~/CarlaTestBench/catkin_ws/devel/include)
 
-file(GLOB_RECURSE PROTOCOL_CC ${PROTOCOL_PATH}/*.cc)
+file(GLOB_RECURSE PROTOCOL_CC ${CARLA_MPC_INCLUDE_PROTO_PATH}/*.cc)
+file(GLOB_RECURSE COMMON_CC ${CARLA_MPC_INCLUDE_COMMON_PATH}/*.cc)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
@@ -59,12 +65,12 @@ find_package(
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
- add_message_files(
+add_message_files(
    FILES
    CarlaEgoVehicleInfo.msg
    CarlaEgoVehicleStatus.msg
    CarlaEgoVehicleControl.msg
- )
+)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -133,16 +139,16 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
 )
-
 include_directories(
   ${Protobuf_INCLUDE_DIRS}
 )
 include_directories(
-  ${PROTOCOL_PATH}
+  ${CARLA_MPC_INCLUDE_COMMON_PATH}
 )
 include_directories(
-  ${CARLA_MPC_INCLUDE_PATH}
+  ${CARLA_MPC_INCLUDE_PROTO_PATH}
 )
+
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/carla_mpc.cpp
@@ -156,8 +162,8 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(${PROJECT_NAME}_node src/mpc_node.cpp ${PROTOCOL_CC})
-
+add_executable(${PROJECT_NAME}_node src/mpc_node.cpp ${PROTOCOL_CC} ${COMMON_CC})
+#add_executable(${PROJECT_NAME}_node src/mpc_node.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use

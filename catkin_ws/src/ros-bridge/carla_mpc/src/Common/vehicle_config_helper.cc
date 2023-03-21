@@ -1,6 +1,7 @@
+#include "vehicle_config_helper.h"
+
 #include <string>
 #include <fstream>
-
 #include <fcntl.h>
 #include <glob.h>
 #include <dirent.h>
@@ -12,7 +13,7 @@
 #include "ros/ros.h"
 #include "google/protobuf/text_format.h"
 #include "google/protobuf/io/zero_copy_stream_impl.h"
-#include "proto/vehicle_config.pb.h"
+#include "vehicle_config.pb.h"
 
 bool GetProtoFromTXTFile(const std::string &file_name,
     google::protobuf::Message *message)

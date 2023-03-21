@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PROTOBUF_PATH=../proto
-INCLUDE_PATH=../include/proto
+INCLUDE_PATH=../src/Proto
 
 declare -a array=("${PROTOBUF_PATH}"/*)
 

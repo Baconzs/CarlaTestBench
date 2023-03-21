@@ -8,10 +8,11 @@
 #include <sensor_msgs/PointCloud2.h>
 #include <visualization_msgs/Marker.h>
 #include <nav_msgs/Path.h>
+#include <string>
 //#include "carla_waypoint_types/CarlaWaypoint.h"
 #include "vehicle_config.pb.h"
 #include "vehicle_config_helper.h"
-#include <string>
+
 
 void LidarCallback(const sensor_msgs::PointCloud2 &LidarMessage);
 void EgoVehicleStatusCallback(const carla_msgs::CarlaEgoVehicleStatus &EgoSts);
@@ -20,7 +21,7 @@ void OdometryCallback(const nav_msgs::Odometry &EgoOdometryMessage);
 void WayPointCallback(const nav_msgs::Path &WayPointMessage);
 
 ros::Publisher pub_lidar;
-std::string cfgPath = "~/carla-ros-bridge/ros-bridge/carla_mpc/proto";
+std::string cfgPath = "/home/sen/CarlaTestBench/catkin_ws/src/ros-bridge/carla_mpc/config/vehicle_config.pb.txt";
 
 int main(int argc, char **argv)
 {
@@ -43,6 +44,8 @@ int main(int argc, char **argv)
 
     while(ros::ok())
     {
+        ROS_INFO_STREAM("Log INFO CF = " << cf);
+        vehPara.PrintDebugString();
         ackermann_msgs::AckermannDrive ackermann_cmd;
         ackermann_cmd.steering_angle = 1.00;
         ackermann_cmd.steering_angle_velocity = 0.00;
@@ -50,6 +53,7 @@ int main(int argc, char **argv)
         ackermann_cmd.acceleration = 0.00;
         ackermann_cmd.jerk = 0.00;
         pub.publish(ackermann_cmd);
+        
 
         ros::spinOnce();
         loop_rate.sleep();
@@ -81,6 +85,7 @@ void OdometryCallback(const nav_msgs::Odometry &EgoOdometryMessage)
 
 void WayPointCallback(const nav_msgs::Path &WayPointMessage)
 {
-    //ROS_INFO("The count of waypoint is: [%lu]", WayPointMessage.poses.size());
+    ROS_INFO("The count of waypoint is: [%lu]", WayPointMessage.poses.size());
     ROS_INFO("waypoint is OK!");
+    
 }
