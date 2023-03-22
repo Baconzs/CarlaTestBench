@@ -11,3 +11,6 @@ float32 radius
 float32 max_brake_torque
 float32 max_handbrake_torque
 geometry_msgs/Vector3 position
+float32 long_stiff_value
+float32 lat_stiff_max_load
+float32 lat_stiff_value

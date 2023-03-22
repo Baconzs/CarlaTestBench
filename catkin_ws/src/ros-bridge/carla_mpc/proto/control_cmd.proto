@@ -1,0 +1,86 @@
+syntax = "proto3";
+package controller;
+
+message LatencySts {
+    double total_time_ms = 1;
+    double controller_time_ms = 2;
+}
+
+message SimpleMPCDebug {
+    double lateral_error = 1;
+    double ref_heading = 2;
+    double heading = 3;
+    double heading_error = 4;
+    double heading_error_rate = 5;
+    double lateral_error_rate = 6;
+    double curvature = 7;
+    double steer_angle = 8;
+    double steer_angle_feedforward = 9;
+    double steer_angle_lateral_contribution = 10;
+    double steer_angle_lateral_rate_contribution = 11;
+    double steer_angle_heading_contribution = 12;
+    double steer_angle_heading_rate_contribution = 13;
+    double steer_angle_feedback = 14;
+    double steering_position = 15;
+    double ref_speed = 16;
+    double steer_angle_limited = 17;
+    double station_reference = 18;
+    double station_error = 19;
+    double speed_reference = 20;
+    double speed_error = 21;
+    double acceleration_reference = 22;
+    bool is_full_stop = 23;
+    double station_feedback = 24;
+    double speed_feedback = 25;
+    double acceleration_cmd_closeloop = 26;
+    double acceleration_cmd = 27;
+    double acceleration_lookup = 28;
+    double speed_lookup = 29;
+    double calibration_value = 30;
+    double steer_unconstrained_control_diff = 31;
+    double steer_angle_feedforward_compensation = 32;
+    double matrix_q_updated = 33;  // matrix_q_updated_ size = 6
+    double matrix_r_updated = 34;  // matrix_r_updated_ size = 2
+  
+    // time derivative of lateral error rate, in m/s^2
+    double lateral_acceleration = 35;
+    // second time derivative of lateral error rate, in m/s^3
+    double lateral_jerk = 36;
+  
+    double ref_heading_rate = 37;
+    double heading_rate = 38;
+  
+    // heading_acceleration, as known as yaw acceleration, is the time derivative
+    // of heading rate,  in rad/s^2
+    double ref_heading_acceleration = 39;
+    double heading_acceleration = 40;
+    double heading_error_acceleration = 41;
+  
+    // heading_jerk, as known as yaw jerk, is the second time derivative of
+    // heading rate, in rad/s^3
+    double ref_heading_jerk = 42;
+    double heading_jerk = 43;
+    double heading_error_jerk = 44;
+  
+    double acceleration_feedback = 45;
+    double acceleration_error = 46;
+    double jerk_reference = 47;
+    double jerk_feedback = 48;
+    double jerk_error = 49;
+}
+
+message ControlCommand {
+    double throttle = 1;
+
+    double brake = 2;
+
+    double steering_target = 3;
+
+    double acceleration_target = 4;
+
+    double speed_target = 5;
+
+    SimpleMPCDebug debug = 6;
+
+    LatencySts latencysts = 7;
+}

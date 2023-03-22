@@ -156,6 +156,9 @@ class EgoVehicle(Vehicle):
                 wheel_info.position.x = wheel_pos_in_ego_vehicle[0]
                 wheel_info.position.y = -wheel_pos_in_ego_vehicle[1]
                 wheel_info.position.z = wheel_pos_in_ego_vehicle[2]
+                wheel_info.long_stiff_value = wheel.long_stiff_value
+                wheel_info.lat_stiff_max_load = wheel.lat_stiff_max_load
+                wheel_info.lat_stiff_value = wheel.lat_stiff_value
                 vehicle_info.wheels.append(wheel_info)
 
             vehicle_info.max_rpm = vehicle_physics.max_rpm
