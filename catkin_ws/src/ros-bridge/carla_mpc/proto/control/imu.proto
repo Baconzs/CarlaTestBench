@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package localization;
+
+import "common/geometry.proto";
+import "common/header.proto";
+
+message Pose {
+    common.Header header = 1;
+
+    common.Point3D position = 2;
+
+    common.Point3D linear_velocity = 3;
+
+    common.Point3D linear_acceleration = 4;
+
+    common.Point3D angular_velocity = 5;
+
+    common.Point3D orientation = 6;
+}

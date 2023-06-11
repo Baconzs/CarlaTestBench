@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package common;
+
+message Point2D{
+    double x = 1;
+    double y = 2;
+}
+
+message Point3D{
+    double x = 1;
+    double y = 2;
+    double z = 3;
+}

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package common;
+
+import "common/geometry.proto";
+
+message wheel{
+    float tire_friction = 1;
+    float wheel_damping_rate = 2;
+    float max_steer_angle = 3;
+    float radius = 4;
+    common.Point3D position = 5;
+    float long_stiff_value = 6;
+    float lat_stiff_max_load = 7;
+    float lat_stiff_value = 8;
+}

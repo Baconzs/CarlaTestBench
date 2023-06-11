@@ -1,0 +1,18 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/sen/CarlaTestBench/catkin_ws/devel/lib/python3/dist-packages",
+        "/home/sen/carla-ros-bridge/catkin_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/home/sen/Carla/PythonAPI/carla/dist/carla-0.9.13-py3.7-linux-x86_64.egg",
+        "/home/sen/Carla/PythonAPI/carla",
+        "/home/sen/Carla/PythonAPI"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/sen/CarlaTestBench/catkin_ws/devel/lib/python3/dist-packages",
+        "/home/sen/carla-ros-bridge/catkin_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/home/sen/Carla/PythonAPI/carla/dist/carla-0.9.13-py3.7-linux-x86_64.egg",
+        "/home/sen/Carla/PythonAPI/carla",
+        "/home/sen/Carla/PythonAPI"
+    ]
+}

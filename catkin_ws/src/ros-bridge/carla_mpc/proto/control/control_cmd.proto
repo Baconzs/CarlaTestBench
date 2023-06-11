@@ -1,12 +1,14 @@
 syntax = "proto3";
 package controller;
 
+import "common/header.proto";
+
 message LatencySts {
     double total_time_ms = 1;
     double controller_time_ms = 2;
 }
 
-message SimpleMPCDebug {
+message SimpleMPCDebug{
     double lateral_error = 1;
     double ref_heading = 2;
     double heading = 3;
@@ -83,4 +85,6 @@ message ControlCommand {
     SimpleMPCDebug debug = 6;
 
     LatencySts latencysts = 7;
+
+    common.Header header = 8;
 }

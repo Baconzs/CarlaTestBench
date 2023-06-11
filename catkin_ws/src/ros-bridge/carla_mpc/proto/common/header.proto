@@ -1,0 +1,13 @@
+syntax  = "proto3";
+
+package common;
+
+message Header{
+    double timestamp_sec = 1;
+
+    string module_name = 2;
+
+    uint32 sequence_num = 3;
+
+    string frame_id = 4;
+}

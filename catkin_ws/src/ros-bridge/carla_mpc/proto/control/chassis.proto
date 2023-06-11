@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package chassis;
+
+import "common/header.proto";
+import "common/geometry.proto";
+import "common/wheel.proto";
+
+message ESP{
+    common.Header header = 1;
+    float brake = 2;
+    bool hand_brake = 3;
+    float mass = 4;
+    float drag_coefficient = 5;
+    common.Point3D center_of_mass = 6;
+    repeated common.wheel wheel = 7;
+    float speed = 8;
+
+}
+
+message EPS{
+    common.Header header = 1;
+    float steer = 2;
+    
+
+}
+
+message Powertrain{
+    common.Header header = 1;
+    float throttle = 2;
+    int32 gear = 3;
+    bool manual_gear_shift = 4;
+    float max_rpm = 5;
+    float moi = 6;
+    float damping_rate_full_throttle = 7;
+    float damping_rate_zero_throttle_clutch_engaged = 8;
+    float damping_rate_zero_throttle_clutch_disengaged = 9;
+    bool use_gear_autobox = 10;
+    float gear_switch_time = 11;
+    float clutch_strength = 12;
+    
+
+}
