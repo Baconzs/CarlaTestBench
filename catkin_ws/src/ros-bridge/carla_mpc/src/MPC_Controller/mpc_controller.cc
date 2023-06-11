@@ -8,4 +8,4 @@
 
 #include "eigen3/Eigen/LU"
 
-MPCController::
+MPCController::Init()
