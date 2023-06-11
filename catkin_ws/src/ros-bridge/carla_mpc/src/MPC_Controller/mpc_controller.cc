@@ -9,3 +9,6 @@
 #include "eigen3/Eigen/LU"
 
 MPCController::Init()
+{
+    
+}
